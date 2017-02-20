@@ -77,6 +77,14 @@ h1 {
 strong {
   font-weight: bold; }
 
+@keyframes pulse {
+  0% {
+    transform: scale(1); }
+  50% {
+    transform: scale(0.9); }
+  100% {
+    transform: scale(1); } }
+
 header {
   display: -ms-flexbox;
   display: flex;
@@ -84,8 +92,12 @@ header {
       flex-direction: column;
   padding-top: 2.2rem;
   text-align: center; }
-  header img, header picture {
-    margin-bottom: 1rem; }
+  header img {
+    margin-bottom: 1rem;
+    cursor: pointer;
+    animation: pulse 3s linear infinite; }
+    header img:hover {
+      animation: none; }
   header p {
     margin-bottom: 5rem;
     color: #4c4c4c;
@@ -134,11 +146,15 @@ footer {
     width: calc(100% - 2rem);
     bottom: 1.3rem;
     color: #fff;
-    display: none; }
+    bottom: -8rem; }
   li {
     position: relative;
     display: inline-block;
     width: calc(100% / 3 - .33333333rem);
-    padding-right: 2rem; }
+    padding-right: 2rem;
+    overflow: hidden; }
     li:hover .caption {
-      display: block; } }
+      transition: .25s;
+      transition-timing-function: ease-out;
+      display: block;
+      bottom: 1.5rem; } }
